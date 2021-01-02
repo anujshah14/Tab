@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Progress bar</title>
+	<style type="text/css">
+		.container{
+			width: 100%;
+		}
+		.progressbar{
+			counter-reset: step;
+
+		}
+		.progressbar li{
+			list-style-type: none;
+			float: left;
+			width: 33.33%;
+			position: relative;
+			text-align: center;
+
+		}
+		.progressbar li:before{
+			content: counter(step);
+			counter-increment: step;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			border: 1px solid lightgray;
+			display: block;
+			text-align: center;
+			margin: 0 auto 10px auto;
+			border-radius: 50px;
+		}
+		.progressbar li:after{
+			content: '';
+			position: absolute;
+			width: 300px;
+			height: 1px;
+			background-color: lightgray;
+			top: 15px;
+			left: -50%;
+		}
+		.progressbar li:first-child:after{
+			content: none;
+		}
+		.progressbar li.active{
+			color: blue;
+		}
+		.progressbar li.active:before{
+			border-color: red;
+		}
+		.progressbar li.active + li:after {
+			background-color: blue;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="progressbar">
+			<li class="active">Packages </li>
+			<li class="active">Details</li>
+			<li class="active">Biling </li>
+		</ul>
+		
+	</div>
+</body>
+</html>
